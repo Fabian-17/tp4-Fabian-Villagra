@@ -13,7 +13,7 @@ app.use(helmet())
 app.use(morgan('dev'))
 app.use('/', routes)
 
-//El puerto el donde funcionara la pagina
+//El puerto en donde funcionará la pagina
 app.listen(6000, () => {
     console.log("Listen on the port 6000...");
 });
