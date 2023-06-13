@@ -1,10 +1,19 @@
 const express = require('express')
+const cors = require('cors')
+const helmet = require('helmet')
+const morgan = require('morgan')
+
 const app = express()
+//Importamos las rutas con los controladores
+const routes = require('./src/routes/routes')
 
-app.get('/', function (req, res) {
-  res.send('Hello Word')
-})
+app.use(express.json())
+app.use(cors())
+app.use(helmet())
+app.use(morgan('dev'))
+app.use('/', routes)
 
-app.listen(5000, () => {
+//El puerto el donde funcionara la pagina
+app.listen(6000, () => {
     console.log("Listen on the port 6000...");
 });
